@@ -1,6 +1,6 @@
 # Sentry API
 
-Gitlab is a Ruby wrapper and CLI for the [GitLab API](https://github.com/gitlabhq/gitlabhq/tree/master/doc/api#gitlab-api). 
+Sentry API is a Ruby wrapper and CLI for the [GitLab API](https://github.com/gitlabhq/gitlabhq/tree/master/doc/api#gitlab-api). 
 **And it still being developed, and not published yet.**
 
 ## Installation
