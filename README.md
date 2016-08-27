@@ -82,3 +82,6 @@ prompt that will allow you to experiment.
 ## License
 
 Released under the BSD 2-clause license. See LICENSE.txt for details.
+
+## Special Thank
+Thanks to NARKOZ's [gitlab](https://github.com/NARKOZ/gitlab) ruby wrapper, it really give me a lot of inspiration.
