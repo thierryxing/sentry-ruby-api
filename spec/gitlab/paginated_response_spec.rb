@@ -1,38 +1,26 @@
 require 'spec_helper'
 
-describe Gitlab::PaginatedResponse do
+describe Sentry::PaginatedResponse do
   before do
     array = [1, 2, 3, 4]
-    @paginated_response = Gitlab::PaginatedResponse.new array
+    @paginated_response = Sentry::PaginatedResponse.new array
   end
 
   it "should respond to *_page and has_*_page methods" do
-    expect(@paginated_response).to respond_to :first_page
-    expect(@paginated_response).to respond_to :last_page
     expect(@paginated_response).to respond_to :next_page
     expect(@paginated_response).to respond_to :prev_page
-    expect(@paginated_response).to respond_to :has_first_page?
-    expect(@paginated_response).to respond_to :has_last_page?
     expect(@paginated_response).to respond_to :has_next_page?
     expect(@paginated_response).to respond_to :has_prev_page?
   end
 
   context '.parse_headers!' do
     it "should parse headers" do
-      @paginated_response.parse_headers!('Link' => "<http://example.com/api/v3/projects?page=1&per_page=5>; rel=\"first\", <http://example.com/api/v3/projects?page=20&per_page=5>; rel=\"last\"")
+      @paginated_response.parse_headers!('Link' => "<http://example.com/api/0/organizations/?&cursor=100:-1:1>; rel=\"previous\"; results=\"false\"; cursor=\"100:-1:1\", <http://example.com/api/0/organizations/?&cursor=100:1:0>; rel=\"next\"; results=\"true\"; cursor=\"100:1:0\"")
       client = @paginated_response.client = double('client')
-      first_page_response = double('first_page_response')
-      last_page_response = double('last_page_response')
-      allow(client).to receive(:endpoint).and_return("http://example.com/api/v3")
-      allow(client).to receive(:get).with("/projects?page=1&per_page=5").and_return(first_page_response)
-      allow(client).to receive(:get).with("/projects?page=20&per_page=5").and_return(last_page_response)
-      expect(@paginated_response.has_first_page?).to be true
-      expect(@paginated_response.has_last_page?).to be true
-      expect(@paginated_response.has_next_page?).to be false
+      allow(client).to receive(:endpoint).and_return("http://example.com/api/0")
+      expect(@paginated_response.has_next_page?).to be true
       expect(@paginated_response.has_prev_page?).to be false
-      expect(@paginated_response.first_page).to be first_page_response
-      expect(@paginated_response.last_page).to be last_page_response
-      expect(@paginated_response.next_page).to be_nil
+      expect(@paginated_response.next_page).to eql 'http://example.com/api/0/organizations/?&cursor=100:1:0'
       expect(@paginated_response.prev_page).to be_nil
     end
   end

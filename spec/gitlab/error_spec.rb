@@ -1,26 +1,29 @@
 require "spec_helper"
 
-describe Gitlab::Error do
+describe Sentry::Error do
   describe "#handle_message" do
-		require "stringio"
+    require "stringio"
 
     before do
-      request_object  = HTTParty::Request.new(Net::HTTP::Get, '/')
+      request_object = HTTParty::Request.new(Net::HTTP::Get, '/')
       response_object = Net::HTTPOK.new('1.1', 200, 'OK')
       body = StringIO.new("{foo:'bar'}")
-      def body.message; self.string; end
+
+      def body.message;
+        self.string;
+      end
 
       parsed_response = lambda { body }
-      response_object['last-modified'] = Date.new(2010, 1, 15).to_s
+      response_object['last-modified'] = Date.new(2016, 1, 15).to_s
       response_object['content-length'] = "1024"
 
       response = HTTParty::Response.new(request_object, response_object, parsed_response, body: body)
-      @error = Gitlab::Error::ResponseError.new(response)
+      @error = Sentry::Error::ResponseError.new(response)
 
       @array = Array.new(['First message.', 'Second message.'])
-      @obj_h = Gitlab::ObjectifiedHash.new(user: ['not set'],
+      @obj_h = Sentry::ObjectifiedHash.new(user: ['not set'],
                                            password: ['too short'],
-                                           embed_entity: { foo: ['bar'], sna: ['fu'] })
+                                           embed_entity: {foo: ['bar'], sna: ['fu']})
     end
 
     context "when passed an ObjectifiedHash" do

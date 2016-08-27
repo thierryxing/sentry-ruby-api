@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Gitlab::ObjectifiedHash do
+describe Sentry::ObjectifiedHash do
   before do
-    @hash = { a: 1, b: 2, 'string' => 'string', symbol: :symbol }
-    @oh = Gitlab::ObjectifiedHash.new @hash
+    @hash = {a: 1, b: 2, 'string' => 'string', symbol: :symbol}
+    @oh = Sentry::ObjectifiedHash.new @hash
   end
 
   it "should objectify hash" do
