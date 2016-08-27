@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea58f1ec-cbb7-4665-a861-6d1814f1f49e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/sentry.rb" afterPath="$PROJECT_DIR$/lib/sentry.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/gitlab/client/organizations_spec.rb" afterPath="$PROJECT_DIR$/spec/gitlab/client/organizations_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/sentry_spec.rb" afterPath="$PROJECT_DIR$/spec/sentry_spec.rb" />
     </list>
     <ignored path="sentry.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,16 +23,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sentry.gemspec" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sentry.gemspec">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="organizations.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/sentry/client/organizations.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -54,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sentry_spec.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sentry_spec.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec/sentry_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="861">
-              <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+            <state relative-caret-position="630">
+              <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -67,7 +56,7 @@
       <file leaf-file-name="request_spec.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/gitlab/request_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1218">
+            <state relative-caret-position="723">
               <caret line="58" column="157" selection-start-line="58" selection-start-column="65" selection-end-line="58" selection-end-column="157" />
               <folding />
             </state>
@@ -77,7 +66,7 @@
       <file leaf-file-name="spec_helper.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
+            <state relative-caret-position="-327">
               <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
               <folding />
             </state>
@@ -94,11 +83,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="organizations_spec.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="organizations_spec.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/gitlab/client/organizations_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
               <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="request.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/sentry/request.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-369">
+              <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -139,7 +138,6 @@
         <option value="$PROJECT_DIR$/spec/gitlab/request_spec.rb" />
         <option value="$PROJECT_DIR$/sentry.gemspec" />
         <option value="$PROJECT_DIR$/lib/sentry/error.rb" />
-        <option value="$PROJECT_DIR$/spec/sentry_spec.rb" />
         <option value="$PROJECT_DIR$/spec/fixtures/organizations.json" />
         <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
         <option value="$PROJECT_DIR$/spec/gitlab/page_links_spec.rb" />
@@ -150,6 +148,7 @@
         <option value="$PROJECT_DIR$/lib/sentry/client/organizations.rb" />
         <option value="$PROJECT_DIR$/lib/sentry.rb" />
         <option value="$PROJECT_DIR$/spec/gitlab/client/organizations_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/sentry_spec.rb" />
       </list>
     </option>
   </component>
@@ -470,12 +469,12 @@
       <updated>1472286011690</updated>
       <workItem from="1472286012882" duration="916000" />
       <workItem from="1472287220887" duration="25000" />
-      <workItem from="1472287301444" duration="9616000" />
+      <workItem from="1472287301444" duration="9682000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10557000" />
+    <option name="totallyTimeSpent" value="10623000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-157" width="1920" height="1053" extended-state="6" />
@@ -740,14 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/sentry/request.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -804,30 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/sentry_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/gitlab/request_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="58" column="157" selection-start-line="58" selection-start-column="65" selection-end-line="58" selection-end-column="157" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/sentry/client/organizations.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -840,6 +807,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/sentry/request.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-369">
+          <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/gitlab/request_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="723">
+          <caret line="58" column="157" selection-start-line="58" selection-start-column="65" selection-end-line="58" selection-end-column="157" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-327">
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/sentry_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
           <folding />
         </state>
       </provider>

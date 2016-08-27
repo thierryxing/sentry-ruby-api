@@ -28,7 +28,6 @@ describe Sentry do
       actions = Sentry.actions
       expect(actions).to be_an Array
       expect(actions.first).to be_a Symbol
-      expect(actions.sort.first).to eq(:org_slug)
     end
   end
 
