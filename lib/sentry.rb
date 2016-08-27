@@ -38,7 +38,7 @@ module Sentry
   #
   # @return [Array<Symbol>]
   def self.actions
-    hidden = /endpoint|auth_token|get|post|put|\Adelete\z|validate|set_request_defaults|httparty/
+    hidden = /endpoint|auth_token|get|post|put|delete|validate|set_request_defaults|httparty/
     (Sentry::Client.instance_methods - Object.methods).reject { |e| e[hidden] }
   end
 
