@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea58f1ec-cbb7-4665-a861-6d1814f1f49e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/sentry/client/projects.rb" afterPath="$PROJECT_DIR$/lib/sentry/client/projects.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/sentry/request.rb" afterPath="$PROJECT_DIR$/lib/sentry/request.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/gitlab/client/projects_spec.rb" afterPath="$PROJECT_DIR$/spec/gitlab/client/projects_spec.rb" />
     </list>
     <ignored path="sentry.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="projects.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="projects.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/sentry/client/projects.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="49" column="22" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="22" />
+            <state relative-caret-position="239">
+              <caret line="105" column="36" selection-start-line="105" selection-start-column="32" selection-end-line="105" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -67,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_sentry.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test_sentry.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/test_sentry.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+            <state relative-caret-position="378">
+              <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -168,9 +164,9 @@
         <option value="$PROJECT_DIR$/spec/gitlab/client/organizations_spec.rb" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/bin/console" />
-        <option value="$PROJECT_DIR$/lib/sentry/client/projects.rb" />
         <option value="$PROJECT_DIR$/lib/sentry/request.rb" />
         <option value="$PROJECT_DIR$/spec/gitlab/client/projects_spec.rb" />
+        <option value="$PROJECT_DIR$/lib/sentry/client/projects.rb" />
         <option value="$PROJECT_DIR$/test/test_sentry.rb" />
       </list>
     </option>
@@ -475,12 +471,12 @@
       <workItem from="1472287301444" duration="9682000" />
       <workItem from="1472371956165" duration="11162000" />
       <workItem from="1472389818644" duration="1104000" />
-      <workItem from="1472390995497" duration="1314000" />
+      <workItem from="1472390995497" duration="2868000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24203000" />
+    <option name="totallyTimeSpent" value="25757000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
@@ -777,14 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/sentry/client.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -833,14 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/sentry/request.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="121" column="46" selection-start-line="121" selection-start-column="46" selection-end-line="121" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/gitlab/error_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -849,18 +829,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_sentry.rb">
+    <entry file="file://$PROJECT_DIR$/lib/sentry/client.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        <state relative-caret-position="189">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/sentry/client/projects.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="49" column="22" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="22" />
+        <state relative-caret-position="239">
+          <caret line="105" column="36" selection-start-line="105" selection-start-column="32" selection-end-line="105" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/sentry/request.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="121" column="46" selection-start-line="121" selection-start-column="46" selection-end-line="121" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_sentry.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
           <folding />
         </state>
       </provider>

@@ -70,31 +70,17 @@ class Sentry::Client
       get("/projects/#{organization_slug}/#{project_slug}/stats/", query: options)
     end
 
-    # Create a new Client Key.
+    # List a Project’s DSym Files.
     #
     # @example
-    #   Sentry.create_client_key('project-slug','new-name')
+    #   Sentry.project_dsym_files('project-slug')
     #
-    # @param project_slug [String] the slug of the project the client keys belong to.
-    # @param name [String] the name for the new key.
-    # @param organization_slug [String] the slug of the organization the client keys belong to.
-    # @return <Sentry::ObjectifiedHash>
-    def create_client_key(project_slug, name, organization_slug="")
+    # @param organization_slug [String] the slug of the organization.
+    # @param project_slug [String] the slug of the project to list the dsym files of.
+    # @return [Array<Sentry::ObjectifiedHash>]
+    def project_dsym_files(project_slug, organization_slug="")
       organization_slug = @default_org_slug if organization_slug == ""
-      post("/projects/#{organization_slug}/#{project_slug}/keys/", body: {name: name})
-    end
-
-    # Delete a Client Key.
-    #
-    # @example
-    #   Sentry.delete_client_key('project-slug','87c990582e07446b9907b357fc27730e')
-    #
-    # @param project_slug [String] the slug of the project the client keys belong to.
-    # @param key_id [String] the ID of the key to delete.
-    # @param organization_slug [String] the slug of the organization the client keys belong to.
-    def delete_client_key(project_slug, key_id, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
-      delete("/projects/#{organization_slug}/#{project_slug}/keys/#{key_id}/")
+      get("/projects/#{organization_slug}/#{project_slug}/files/dsyms/")
     end
 
     # List a Project’s Client Keys.
@@ -110,19 +96,49 @@ class Sentry::Client
       get("/projects/#{organization_slug}/#{project_slug}/keys/")
     end
 
-    # List a Project’s DSym Files.
+    # Create a new Client Key.
     #
     # @example
-    #   Sentry.project_dsym_files('project-slug')
+    #   Sentry.create_client_key('project-slug','new-name')
     #
-    # @param organization_slug [String] the slug of the organization.
-    # @param project_slug [String] the slug of the project to list the dsym files of.
-    # @return [Array<Sentry::ObjectifiedHash>]
-    def project_dsym_files(project_slug, organization_slug="")
+    # @param project_slug [String] the slug of the project the client keys belong to.
+    # @param  [Hash] options A customizable set of options.
+    # @option options [String] :name the name for the new key.
+    # @param organization_slug [String] the slug of the organization the client keys belong to.
+    # @return <Sentry::ObjectifiedHash>
+    def create_client_key(project_slug, options={}, organization_slug="")
       organization_slug = @default_org_slug if organization_slug == ""
-      get("/projects/#{organization_slug}/#{project_slug}/files/dsyms/")
+      post("/projects/#{organization_slug}/#{project_slug}/keys/", body: options)
     end
 
+    # Delete a Client Key.
+    #
+    # @example
+    #   Sentry.delete_client_key('project-slug','87c990582e07446b9907b357fc27730e')
+    #
+    # @param project_slug [String] the slug of the project the client keys belong to.
+    # @param key_id [String] the ID of the key to delete.
+    # @param organization_slug [String] the slug of the organization the client keys belong to.
+    def delete_client_key(project_slug, key_id, organization_slug="")
+      organization_slug = @default_org_slug if organization_slug == ""
+      delete("/projects/#{organization_slug}/#{project_slug}/keys/#{key_id}/")
+    end
+
+    # Update a Client Key
+    #
+    # @example
+    #   Sentry.update_client_key('project-slug','87c990582e07446b9907b357fc27730e',{name:'new-name'})
+    #
+    # @param project_slug [String] the slug of the project the client keys belong to.
+    # @param key_id [String] the ID of the key to update.
+    # @param  [Hash] options A customizable set of options.
+    # @option options [String] :name the new name for the client key.
+    # @param organization_slug [String] the slug of the organization the client keys belong to.
+    # @return [Array<Sentry::ObjectifiedHash>]
+    def update_client_key(project_slug, key_id, options={}, organization_slug="")
+      organization_slug = @default_org_slug if organization_slug == ""
+      put("/projects/#{organization_slug}/#{project_slug}/keys/#{key_id}/", body: options)
+    end
 
   end
 
