@@ -7,14 +7,10 @@ Sentry API is a Ruby wrapper for the [Sentry API](https://docs.sentry.io/hosted/
 
 Install it from rubygems:
 
-```sh
-gem install sentry
-```
-
-Or add to a Gemfile:
+add to a Gemfile:
 
 ```ruby
-gem 'sentry'
+gem 'sentry', :path => '/path/to/sentry'
 ```
 
 ## Usage
@@ -47,28 +43,28 @@ Sentry.http_proxy('proxyhost', 8888)
 # proxy server w/ basic auth
 Sentry.http_proxy('proxyhost', 8888, 'user', 'pass')
 
-# list organizations
-Sentry.organizations
+# list projects
+Sentry.projects
 
 # initialize a new client
 s = Sentry.client(endpoint: 'https://api.example.com', auth_token: 'your_auth_token', default_org_slug: 'sentry-sc')
 
 # a paginated response
-organizations = Sentry.organizations
+projects = Sentry.projects
 
 # check existence of the next page
-organizations.has_next_page?
+projects.has_next_page?
 
 # retrieve the next page
-organizations.next_page
+projects.next_page
 
 # iterate all organizations
-organizations.auto_paginate do |organization|
+projects.auto_paginate do |project|
   # do something
 end
 
-# retrieve all organizations as an array
-organizations.auto_paginate
+# retrieve all projects as an array
+projects.auto_paginate
 ```
 
 ## Development
