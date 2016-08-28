@@ -5,8 +5,6 @@ Sentry API is a Ruby wrapper for the [Sentry API](https://docs.sentry.io/hosted/
 
 ## Installation
 
-Install it from rubygems:
-
 add to a Gemfile:
 
 ```ruby
