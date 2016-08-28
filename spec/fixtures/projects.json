@@ -1,0 +1,71 @@
+[
+  {
+    "status": "active",
+    "slug": "the-spoiled-yoghurt",
+    "defaultEnvironment": null,
+    "features": [],
+    "color": "#bf6e3f",
+    "isPublic": false,
+    "dateCreated": "2016-08-26T20:01:03.113Z",
+    "platforms": [],
+    "callSign": "THE-SPOILED-YOGHURT",
+    "firstEvent": null,
+    "organization": {
+      "name": "The Interstellar Jurisdiction",
+      "slug": "the-interstellar-jurisdiction",
+      "id": "2",
+      "isEarlyAdopter": false,
+      "dateCreated": "2016-08-26T20:00:53.596Z"
+    },
+    "isBookmarked": false,
+    "callSignReviewed": false,
+    "id": "4",
+    "name": "The Spoiled Yoghurt"
+  },
+  {
+    "status": "active",
+    "slug": "prime-mover",
+    "defaultEnvironment": null,
+    "features": [],
+    "color": "#bf5b3f",
+    "isPublic": false,
+    "dateCreated": "2016-08-26T20:00:56.523Z",
+    "platforms": [],
+    "callSign": "PRIME-MOVER",
+    "firstEvent": null,
+    "organization": {
+      "name": "The Interstellar Jurisdiction",
+      "slug": "the-interstellar-jurisdiction",
+      "id": "2",
+      "isEarlyAdopter": false,
+      "dateCreated": "2016-08-26T20:00:53.596Z"
+    },
+    "isBookmarked": false,
+    "callSignReviewed": false,
+    "id": "3",
+    "name": "Prime Mover"
+  },
+  {
+    "status": "active",
+    "slug": "pump-station",
+    "defaultEnvironment": null,
+    "features": [],
+    "color": "#3fbf7f",
+    "isPublic": false,
+    "dateCreated": "2016-08-26T20:00:53.610Z",
+    "platforms": [],
+    "callSign": "PUMP-STATION",
+    "firstEvent": null,
+    "organization": {
+      "name": "The Interstellar Jurisdiction",
+      "slug": "the-interstellar-jurisdiction",
+      "id": "2",
+      "isEarlyAdopter": false,
+      "dateCreated": "2016-08-26T20:00:53.596Z"
+    },
+    "isBookmarked": false,
+    "callSignReviewed": false,
+    "id": "2",
+    "name": "Pump Station"
+  }
+]

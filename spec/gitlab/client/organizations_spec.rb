@@ -55,12 +55,12 @@ describe Sentry::Client do
 
   describe ".update_organization" do
     before do
-      stub_put("/organizations/org-slug/", "update_organization").with(query: {name: "Impeccably Designated"})
+      stub_put("/organizations/org-slug/", "update_organization")
       @edited_organization = Sentry.update_organization("org-slug", name: "Impeccably Designated")
     end
 
     it "should get the correct resource" do
-      expect(a_put("/organizations/org-slug/").with(query: {name: "Impeccably Designated"})).to have_been_made
+      expect(a_put("/organizations/org-slug/")).to have_been_made
     end
 
     it "should return information about an update organization" do

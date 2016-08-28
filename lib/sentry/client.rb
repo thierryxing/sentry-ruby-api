@@ -4,5 +4,6 @@ module Sentry
     Dir[File.expand_path('../client/*.rb', __FILE__)].each { |f| require f }
 
     include Organizations
+    include Projects
   end
 end

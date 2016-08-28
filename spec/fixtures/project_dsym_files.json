@@ -1,0 +1,15 @@
+[
+  {
+    "headers": {
+      "Content-Type": "application/x-mach-binary"
+    },
+    "sha1": "e36f6fc011d93d2148d8a443a87fd47401c13e02",
+    "uuid": "0a77fceb-983e-371d-867f-18116ce19a26",
+    "objectName": "GMThirdParty",
+    "dateCreated": "2016-08-26T09:36:04.866Z",
+    "cpuName": "arm64",
+    "id": "6845",
+    "symbolType": "macho",
+    "size": 398508
+  }
+]

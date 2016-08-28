@@ -1,0 +1,44 @@
+{
+  "status": "active",
+  "options": {
+    "sentry:csp_ignored_sources_defaults": true,
+    "sentry:scrub_defaults": true,
+    "sentry:origins": "*",
+    "sentry:resolve_age": 0,
+    "sentry:sensitive_fields": [],
+    "sentry:csp_ignored_sources": "",
+    "sentry:scrub_data": true,
+    "feedback:branding": true,
+    "sentry:default_environment": null
+  },
+  "isPublic": false,
+  "defaultEnvironment": null,
+  "features": [],
+  "color": "#3fbf7f",
+  "slug": "pump-station",
+  "activePlugins": [],
+  "dateCreated": "2016-08-26T20:00:53.610Z",
+  "platforms": [],
+  "callSign": "PUMP-STATION",
+  "firstEvent": null,
+  "team": {
+    "slug": "powerful-abolitionist",
+    "name": "Powerful Abolitionist",
+    "hasAccess": true,
+    "isPending": false,
+    "dateCreated": "2016-08-26T20:00:53.607Z",
+    "isMember": false,
+    "id": "2"
+  },
+  "organization": {
+    "name": "The Interstellar Jurisdiction",
+    "slug": "the-interstellar-jurisdiction",
+    "id": "2",
+    "isEarlyAdopter": false,
+    "dateCreated": "2016-08-26T20:00:53.596Z"
+  },
+  "isBookmarked": false,
+  "callSignReviewed": false,
+  "id": "2",
+  "name": "Pump Station"
+}

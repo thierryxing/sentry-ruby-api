@@ -1,0 +1,20 @@
+{
+  "status": "active",
+  "options": {
+    "sentry:origins": "http://example.com\nhttp://example.invalid",
+    "sentry:resolve_age": 0
+  },
+  "defaultEnvironment": null,
+  "features": [],
+  "color": "#bf803f",
+  "slug": "plane-proxy",
+  "isPublic": false,
+  "dateCreated": "2016-08-26T20:01:13.463Z",
+  "platforms": [],
+  "callSign": "PLANE-PROXY",
+  "firstEvent": null,
+  "isBookmarked": false,
+  "callSignReviewed": false,
+  "id": "5",
+  "name": "Plane Proxy"
+}

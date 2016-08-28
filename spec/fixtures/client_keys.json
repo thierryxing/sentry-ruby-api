@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Fabulous Key",
+    "dsn": {
+      "secret": "https://95729535ea81422dba6c951e714a0174:a6b380407fc5443fb30d239670f8dee8@app.getsentry.com/2",
+      "csp": "https://app.getsentry.com/api/2/csp-report/?sentry_key=95729535ea81422dba6c951e714a0174",
+      "public": "https://95729535ea81422dba6c951e714a0174@app.getsentry.com/2"
+    },
+    "secret": "a6b380407fc5443fb30d239670f8dee8",
+    "id": "95729535ea81422dba6c951e714a0174",
+    "dateCreated": "2016-08-26T20:01:03.047Z",
+    "public": "95729535ea81422dba6c951e714a0174"
+  }
+]
