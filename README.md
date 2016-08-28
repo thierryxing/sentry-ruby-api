@@ -56,7 +56,7 @@ projects.has_next_page?
 # retrieve the next page
 projects.next_page
 
-# iterate all organizations
+# iterate all projects
 projects.auto_paginate do |project|
   # do something
 end
