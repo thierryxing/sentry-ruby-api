@@ -49,12 +49,14 @@ module Sentry
 
     def post(path, options={})
       set_httparty_config(options)
+      set_json_body(options)
       set_authorization_header(options, path)
       validate self.class.post(@endpoint + path, options)
     end
 
     def put(path, options={})
       set_httparty_config(options)
+      set_json_body(options)
       set_authorization_header(options)
       validate self.class.put(@endpoint + path, options)
     end
@@ -115,6 +117,11 @@ module Sentry
         raise Error::MissingCredentials.new("Please provide a auth_token for user") unless @auth_token
         options[:headers] = {'Authorization' => "Bearer #{@auth_token}"}
       end
+    end
+
+    # Set http post or put body as json string
+    def set_json_body(options)
+      options[:body] = options[:body].to_json
     end
 
     # Set HTTParty configuration

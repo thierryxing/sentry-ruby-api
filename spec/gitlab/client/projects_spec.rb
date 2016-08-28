@@ -35,7 +35,7 @@ describe Sentry::Client do
   describe ".update_project" do
     before do
       stub_put("/projects/org-slug/project-slug/", "update_project")
-      @project=Sentry.update_project("project-slug", "Plane Proxy", "plane-proxy", true, {}, "org-slug")
+      @project=Sentry.update_project("project-slug", {name: "Plane Proxy", slug: "plane-proxy", isBookmarked: true, options: {}}, "org-slug")
     end
 
     it "should get the correct resource" do

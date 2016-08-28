@@ -26,17 +26,18 @@ class Sentry::Client
     # Update a Project
     #
     # @example
-    #   Sentry.update_project('project-slug', 'new-name', 'new-slug', false)
+    #   Sentry.update_project('project-slug', {name:'new-name', slug:'new-slug', is_bookmarked:false})
     #
     # @param project_slug [String] the slug of the project to retrieve.
-    # @param name [String] the new name for the project.
-    # @param slug [String] the new slug for the project.
-    # @param is_bookmarked [String] in case this API call is invoked with a user context this allows changing of the bookmark flag.
-    # @param options [Hash] optional options to override in the project settings.
+    # @param  [Hash] options A customizable set of options.
+    # @option options [String] :name the new name for the project.
+    # @option options [String] :slug the new slug for the project.
+    # @option options [String] :isBookmarked in case this API call is invoked with a user context this allows changing of the bookmark flag.
+    # @option options [Hash] optional options to override in the project settings.
     # @param organization_slug [String] the slug of the organization the project belong to.
-    def update_project(project_slug, name, slug, is_bookmarked, options={}, organization_slug="")
+    def update_project(project_slug, options={}, organization_slug="")
       organization_slug = @default_org_slug if organization_slug == ""
-      put("/projects/#{organization_slug}/#{project_slug}/", body: {name: name, slug: slug, isBookmarked: is_bookmarked, options: options})
+      put("/projects/#{organization_slug}/#{project_slug}/", body: options)
     end
 
     # Delete a Project.
