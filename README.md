@@ -25,7 +25,7 @@ Configuration example:
 Sentry.configure do |config|
   config.endpoint = 'http://example.com/api/0'
   config.auth_token = 'your_auth_token'
-  config.org_slug = 'sentry-sc'
+  config.default_org_slug = 'sentry-sc'
 end
 ```
 
@@ -45,13 +45,13 @@ Sentry.auth_token = 'your_auth_token'
 # configure a proxy server
 Sentry.http_proxy('proxyhost', 8888)
 # proxy server w/ basic auth
-Sentry.http_proxy('proxyhost', 8888, 'proxyuser', 'strongpasswordhere')
+Sentry.http_proxy('proxyhost', 8888, 'user', 'pass')
 
 # list organizations
 Sentry.organizations
 
 # initialize a new client
-s = Sentry.client(endpoint: 'https://api.example.com', auth_token: 'your_auth_token')
+s = Sentry.client(endpoint: 'https://api.example.com', auth_token: 'your_auth_token', default_org_slug: 'sentry-sc')
 
 # a paginated response
 organizations = Sentry.organizations
