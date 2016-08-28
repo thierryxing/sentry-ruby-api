@@ -1,0 +1,21 @@
+{
+  "pendingAccessRequests": 0,
+  "slug": "impeccably-designated",
+  "name": "Impeccably Designated",
+  "quota": {
+    "projectLimit": 100,
+    "maxRate": 0
+  },
+  "dateCreated": "2016-08-26T20:01:13.416Z",
+  "access": [],
+  "teams": [],
+  "onboardingTasks": [],
+  "id": "3",
+  "isEarlyAdopter": false,
+  "features": [
+    "sso",
+    "api-keys",
+    "open-membership",
+    "shared-issues"
+  ]
+}

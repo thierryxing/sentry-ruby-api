@@ -40,8 +40,8 @@ describe Sentry do
 
   describe ".org_slug=" do
     it "should set org_slug" do
-      Sentry.org_slug = 'sentry-sc'
-      expect(Sentry.org_slug).to eq('sentry-sc')
+      Sentry.default_org_slug = 'sentry-sc'
+      expect(Sentry.default_org_slug).to eq('sentry-sc')
     end
   end
 

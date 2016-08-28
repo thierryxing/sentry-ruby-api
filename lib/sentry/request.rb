@@ -9,7 +9,7 @@ module Sentry
     headers 'Content-Type' => 'application/json'
     parser proc { |body, _| parse(body) }
 
-    attr_accessor :auth_token, :endpoint
+    attr_accessor :auth_token, :endpoint, :default_org_slug
 
     # Converts the response body to an ObjectifiedHash.
     def self.parse(body)
@@ -18,7 +18,11 @@ module Sentry
       if body.is_a? Hash
         ObjectifiedHash.new body
       elsif body.is_a? Array
-        PaginatedResponse.new(body.collect! { |e| ObjectifiedHash.new(e) })
+        if body[0].is_a? Array
+          body
+        else
+          PaginatedResponse.new(body.collect! { |e| ObjectifiedHash.new(e) })
+        end
       elsif body
         true
       elsif !body

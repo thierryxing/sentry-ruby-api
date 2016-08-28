@@ -2,7 +2,7 @@ module Sentry
   # Defines constants and methods related to configuration.
   module Configuration
     # An array of valid keys in the options hash when configuring a Sentry::API.
-    VALID_OPTIONS_KEYS = [:endpoint, :auth_token, :org_slug, :httparty].freeze
+    VALID_OPTIONS_KEYS = [:endpoint, :auth_token, :default_org_slug, :httparty].freeze
 
     # The user agent that will be sent to the API endpoint if none is set.
     DEFAULT_USER_AGENT = "Sentry Ruby Gem #{Sentry::VERSION}".freeze
@@ -32,7 +32,7 @@ module Sentry
     def reset
       self.endpoint = ENV['SENTRY_API_ENDPOINT']
       self.auth_token = ENV['SENTRY_API_AUTH_TOKEN']
-      self.org_slug = ENV['SENTRY_API_ORG_SLUG']
+      self.default_org_slug = ENV['SENTRY_API_DEFAULT_ORG_SLUG']
     end
 
   end
