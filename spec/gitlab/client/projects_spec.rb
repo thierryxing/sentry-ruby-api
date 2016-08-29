@@ -145,5 +145,49 @@ describe Sentry::Client do
     end
   end
 
+  describe ".project_events" do
+    before do
+      stub_get("/projects/org-slug/project-slug/events/", "project_events")
+      @event = Sentry.project_events("project-slug", "org-slug")
+    end
+
+    it "should get the correct resource" do
+      expect(a_get("/projects/org-slug/project-slug/events/")).to have_been_made
+    end
+
+    it "should return a response of event" do
+      expect(@event.first.eventID).to eq("ef4e4e732d2544279851cf7c1b42716e")
+    end
+  end
+
+  describe ".project_event" do
+    before do
+      stub_get("/projects/org-slug/project-slug/events/ef4e4e732d2544279851cf7c1b42716e/", "project_event")
+      @event = Sentry.project_event("project-slug", "ef4e4e732d2544279851cf7c1b42716e", "org-slug")
+    end
+
+    it "should get the correct resource" do
+      expect(a_get("/projects/org-slug/project-slug/events/ef4e4e732d2544279851cf7c1b42716e/")).to have_been_made
+    end
+
+    it "should return a response of event" do
+      expect(@event.eventID).to eq("ef4e4e732d2544279851cf7c1b42716e")
+    end
+  end
+
+  describe ".project_issues" do
+    before do
+      stub_get("/projects/org-slug/project-slug/issues/", "project_issues")
+      @issues = Sentry.project_issues("project-slug", "org-slug")
+    end
+
+    it "should get the correct resource" do
+      expect(a_get("/projects/org-slug/project-slug/issues/")).to have_been_made
+    end
+
+    it "should return a array of issues" do
+      expect(@issues.first.culprit).to eq("org.hsqldb.jdbc.Util in throwError")
+    end
+  end
 
 end

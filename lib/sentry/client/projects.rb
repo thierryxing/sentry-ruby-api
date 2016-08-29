@@ -140,6 +140,44 @@ class Sentry::Client
       put("/projects/#{organization_slug}/#{project_slug}/keys/#{key_id}/", body: options)
     end
 
+    # Return a list of sampled events bound to a project.
+    #
+    # @example
+    #   Sentry.project_events('project-slug')
+    #
+    # @param project_slug [String] the slug of the project the client keys belong to.
+    # @param organization_slug [String] the slug of the organization the client keys belong to.
+    # @return [Array<Sentry::ObjectifiedHash>]
+    def project_events(project_slug, organization_slug="")
+      organization_slug = @default_org_slug if organization_slug == ""
+      get("/projects/#{organization_slug}/#{project_slug}/events/")
+    end
+
+    # Retrieve an Event for a Project
+    #
+    # @example
+    #   Sentry.project_event('project-slug', 'event-id')
+    #
+    # @param project_slug [String] the slug of the project the client keys belong to.
+    # @param event_id [String] the slug of the project the event belongs to.
+    # @param organization_slug [String] the slug of the organization the client keys belong to.
+    # @return <Sentry::ObjectifiedHash>
+    def project_event(project_slug, event_id, organization_slug="")
+      organization_slug = @default_org_slug if organization_slug == ""
+      get("/projects/#{organization_slug}/#{project_slug}/events/#{event_id}/")
+    end
+
+    # Return a list of aggregates bound to a project
+    #
+    # @example
+    #   Sentry.project_issues('project-slug')
+    #
+    # @return [Array<Sentry::ObjectifiedHash>]
+    def project_issues(project_slug, organization_slug="")
+      organization_slug = @default_org_slug if organization_slug == ""
+      get("/projects/#{organization_slug}/#{project_slug}/issues/")
+    end
+
   end
 
 end
