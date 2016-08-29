@@ -1,0 +1,12 @@
+{
+  "label": "Quite Positive Key",
+  "dsn": {
+    "secret": "https://b692781e8be347b98722d62506fc8aa8:e65559b2ca5b4f98b2aeda552432eb9c@app.getsentry.com/2",
+    "csp": "https://app.getsentry.com/api/2/csp-report/?sentry_key=b692781e8be347b98722d62506fc8aa8",
+    "public": "https://b692781e8be347b98722d62506fc8aa8@app.getsentry.com/2"
+  },
+  "secret": "e65559b2ca5b4f98b2aeda552432eb9c",
+  "id": "b692781e8be347b98722d62506fc8aa8",
+  "dateCreated": "2016-08-26T20:01:13.396Z",
+  "public": "b692781e8be347b98722d62506fc8aa8"
+}

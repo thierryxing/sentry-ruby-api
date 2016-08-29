@@ -74,6 +74,21 @@ describe Sentry::Client do
     end
   end
 
+  describe ".project_dsym_files" do
+    before do
+      stub_get("/projects/org-slug/project-slug/files/dsyms/", "project_dsym_files")
+      @files = Sentry.project_dsym_files("project-slug", "org-slug")
+    end
+
+    it "should get the correct resource" do
+      expect(a_get("/projects/org-slug/project-slug/files/dsyms/")).to have_been_made
+    end
+
+    it "should return a response of result" do
+      expect(@files.first.objectName).to eq("GMThirdParty")
+    end
+  end
+
   describe ".create_client_key" do
     before do
       stub_post("/projects/org-slug/project-slug/keys/", "create_client_key")
@@ -115,19 +130,20 @@ describe Sentry::Client do
     end
   end
 
-  describe ".project_dsym_files" do
+  describe ".update_client_key" do
     before do
-      stub_get("/projects/org-slug/project-slug/files/dsyms/", "project_dsym_files")
-      @files = Sentry.project_dsym_files("project-slug", "org-slug")
+      stub_put("/projects/org-slug/project-slug/keys/b692781e8be347b98722d62506fc8aa8/", "update_client_key")
+      @key = Sentry.update_client_key("project-slug", "b692781e8be347b98722d62506fc8aa8", {name: "Quite Positive Key"}, "org-slug")
     end
 
     it "should get the correct resource" do
-      expect(a_get("/projects/org-slug/project-slug/files/dsyms/")).to have_been_made
+      expect(a_put("/projects/org-slug/project-slug/keys/b692781e8be347b98722d62506fc8aa8/")).to have_been_made
     end
 
     it "should return a response of result" do
-      expect(@files.first.objectName).to eq("GMThirdParty")
+      expect(@key.label).to eq("Quite Positive Key")
     end
   end
+
 
 end
