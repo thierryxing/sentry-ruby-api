@@ -1,7 +1,6 @@
-# Sentry API
+# Sentry Ruby API
 
-Sentry API is a Ruby wrapper for the [getsentry/sentry API](https://docs.sentry.io/hosted/api/).  
-**And it still being developed, and not published yet.**
+Sentry Ruby API is a Ruby wrapper for the [getsentry/sentry API](https://docs.sentry.io/hosted/api/). **And it still being developed, and not published yet.**
 
 ## Installation
 
