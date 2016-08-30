@@ -7,7 +7,7 @@ Sentry Ruby API is a Ruby wrapper for the [getsentry/sentry API](https://docs.se
 add to a Gemfile:
 
 ```ruby
-gem 'sentry', :path => '/path/to/sentry'
+gem 'sentry', :git => "git@github.com:thierryxing/sentry-ruby-api.git"
 ```
 
 ## Usage
