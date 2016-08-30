@@ -2,59 +2,87 @@ class Sentry::Client
 
   module Events
 
-    # Return details on an individual issue.
-    def issue
-    end
-
-    # Return a list of aggregates bound to a project
+    # Retrieve an Issue
     #
     # @example
-    #   Sentry.projects
+    #   Sentry.issue('120732258')
     #
+    # @param issue_id [String] the ID of the issue to retrieve.
+    # @return Sentry::ObjectifiedHash
+    def issue(issue_id)
+      get("/issues/#{issue_id}/")
+    end
+
+    # List an Issue’s Events
+    #
+    # @example
+    #   Sentry.issue_events('120732258')
+    #
+    # @param issue_id [String] the ID of the issue to retrieve.
     # @return [Array<Sentry::ObjectifiedHash>]
-    def issues
+    def issue_events(issue_id)
+      get("/issues/#{issue_id}/events/")
     end
 
-    # This endpoint lists an issue’s events.
-    def issues_events
-
-    end
-
-    # This endpoint lists an issue’s hashes, which are the generated checksums used to aggregate individual events.
-    def issues_hashes
-
+    # List an Issue’s Hashes
+    #
+    # @example
+    #   Sentry.issues_hashes('120732258')
+    #
+    # @param issue_id [String] the ID of the issue to retrieve.
+    # @return [Array<Sentry::ObjectifiedHash>]
+    def issue_hashes(issue_id)
+      get("/issues/#{issue_id}/hashes/")
     end
 
     # Removes an individual issue.
-    def remove_issue
-
-    end
-
-    # Return a list of sampled events bound to a project.
     #
     # @example
-    #   Sentry.projects
+    #   Sentry.remove_issue('120732258')
     #
-    # @return [Array<Sentry::ObjectifiedHash>]
-    def events
+    # @param issue_id [String] the ID of the issue to retrieve.
+    def remove_issue(issue_id)
+      delete("/issues/#{issue_id}/")
     end
 
-    # Retrieves the details of the latest sample for an aggregate.
+    # Update an individual issue.
     #
     # @example
-    #   Sentry.projects
+    #   Sentry.update_issue('120732258')
+    #   Sentry.update_issue('120732258',{status:'resolved'})
+    #   Sentry.update_issue('120732258',{status:'resolved', assignedTo:'thierry.xing@gmail.com'})
     #
-    # @return [Array<Sentry::ObjectifiedHash>]
-    def latest_events
+    # @param issue_id [String] the ID of the issue to retrieve.
+    # @param  [Hash] options A customizable set of options.
+    # @option options [String] :status the new status for the groups. Valid values are "resolved", "unresolved" and "muted".
+    # @option options [String] :assignedTo the username of the user that should be assigned to this issue.
+    # @option options [Boolean] :hasSeen in case this API call is invoked with a user context this allows changing of the flag that indicates if the user has seen the event.
+    # @option options [Boolean] :isBookmarked in case this API call is invoked with a user context this allows changing of the bookmark flag.
+    # @option options [Boolean] :isSubscribed in case this API call is invoked with a user context this allows changing of the subscribed flag.
+    def update_issue(issue_id, options={})
+      put("/issues/#{issue_id}/", body: options)
     end
 
-    # Retrieves the details of the oldest sample for an aggregate.
+    # Retrieves the details of the latest event.
     #
     # @example
-    #   Sentry.projects
+    #   Sentry.latest_event('120633628')
     #
-    # @return [Array<Sentry::ObjectifiedHash>]
-    def oldest_events
+    # @param issue_id [String] the ID of the issue to retrieve.
+    # @return Sentry::ObjectifiedHash
+    def latest_event(issue_id)
+      get("/issues/#{issue_id}/events/latest/")
+    end
+
+    # Retrieves the details of the oldest event.
+    #
+    # @example
+    #   Sentry.oldest_event('120633628')
+    #
+    # @param issue_id [String] the ID of the issue to retrieve.
+    # @return Sentry::ObjectifiedHash
+    def oldest_event(issue_id)
+      get("/issues/#{issue_id}/events/oldest/")
     end
 
   end

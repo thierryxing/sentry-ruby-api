@@ -32,7 +32,7 @@ class Sentry::Client
     #   Sentry.organization('slug')
     #
     # @param organization_slug [String] the slug of the organization the team should be created for.
-    # @return <Sentry::ObjectifiedHash>
+    # @return Sentry::ObjectifiedHash
     def organization(organization_slug="")
       organization_slug = @default_org_slug if organization_slug == ""
       get("/organizations/#{organization_slug}/")
@@ -46,9 +46,10 @@ class Sentry::Client
     #   Sentry.update_organization('slug',{name:'new-name', slug:'new-slug'})
     #
     # @param organization_slug [String] the slug of the organization the team should be created for.
-    # @param options [String] :name an optional new name for the organization.
-    # @param options [String] :slug an optional new slug for the organization. Needs to be available and unique.
-    # @return <Sentry::ObjectifiedHash>
+    # @param [Hash] options A customizable set of options.
+    # @option options [String] :name an optional new name for the organization.
+    # @option options [String] :slug an optional new slug for the organization. Needs to be available and unique.
+    # @return Sentry::ObjectifiedHash
     def update_organization(organization_slug, options={})
       put("/organizations/#{organization_slug}/", body: options)
     end
@@ -60,7 +61,7 @@ class Sentry::Client
     #   Sentry.organization_stats('slug', {stat:'received', since:'1472158800'})
     #
     # @param organization_slug [String] the slug of the organization for which the stats should be retrieved.
-    # @param  [Hash] options A customizable set of options.
+    # @param [Hash] options A customizable set of options.
     # @option options [String] :stat the name of the stat to query ("received", "rejected", "blacklisted")
     # @option options [Timestamp] :since a timestamp to set the start of the query in seconds since UNIX epoch.
     # @option options [Timestamp] :until a timestamp to set the end of the query in seconds since UNIX epoch.

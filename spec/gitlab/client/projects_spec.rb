@@ -155,7 +155,7 @@ describe Sentry::Client do
       expect(a_get("/projects/org-slug/project-slug/events/")).to have_been_made
     end
 
-    it "should return a response of event" do
+    it "should return an array response of events" do
       expect(@event.first.eventID).to eq("ef4e4e732d2544279851cf7c1b42716e")
     end
   end

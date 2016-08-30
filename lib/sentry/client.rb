@@ -5,5 +5,6 @@ module Sentry
 
     include Organizations
     include Projects
+    include Events
   end
 end

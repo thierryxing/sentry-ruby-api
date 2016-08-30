@@ -10,13 +10,13 @@ Gem::Specification.new do |spec|
   spec.email = ["thierry.xing@gmail.com"]
 
   spec.summary = %q{Ruby client for Sentry API}
-  spec.description = %q{A Ruby wrapper and CLI for the Sentry API}
-  spec.homepage = "https://github.com/thierryxing/sentry-api"
+  spec.description = %q{A Ruby wrapper for the Sentry API}
+  spec.homepage = "https://github.com/thierryxing/sentry-ruby-api"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'https://github.com/thierryxing/sentry-api.git'"
+    spec.metadata['allowed_push_host'] = "TODO: Set to 'https://github.com/thierryxing/sentry-ruby-api.git'"
   else
     raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'webmock'
+  spec.add_development_dependency 'yard'
 end

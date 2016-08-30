@@ -15,6 +15,7 @@ module Sentry
     def to_hash
       @hash
     end
+
     alias_method :to_h, :to_hash
 
     # @return [String] Formatted string with the class name, object id and original hash.

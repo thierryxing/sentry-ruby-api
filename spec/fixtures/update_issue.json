@@ -1,0 +1,47 @@
+{
+  "lastSeen": "2016-04-03T15:09:43Z",
+  "numComments": 0,
+  "userCount": 0,
+  "culprit": "lib/tasks/device_task.rake in rescue in do_send_data at line 140",
+  "title": "Errno::EIO: Input/output error @ io_write - <STDERR>",
+  "id": "120732258",
+  "assignedTo": {
+    "username": "thierry.xing@gmail.com",
+    "isManaged": false,
+    "id": "63061",
+    "isActive": true,
+    "has2fa": false,
+    "name": "Thierry Xing",
+    "avatarUrl": "https://secure.gravatar.com/avatar/acdc4bff4797737fffafc7b7261f2e07?s=32&d=mm",
+    "dateJoined": "2016-03-20T10:59:50.048Z",
+    "avatar": {
+      "avatarUuid": null,
+      "avatarType": "gravatar"
+    },
+    "lastLogin": "2016-08-28T09:38:34.846Z",
+    "email": "thierry.xing@gmail.com"
+  },
+  "logger": "rake",
+  "type": "error",
+  "annotations": [],
+  "metadata": {
+    "type": "Net::OpenTimeout",
+    "value": "execution expired"
+  },
+  "status": "resolved",
+  "isPublic": false,
+  "hasSeen": true,
+  "shortId": "EPEIUS-2T",
+  "shareId": "37313138352e313230373332323538",
+  "firstSeen": "2016-04-03T15:09:43Z",
+  "count": "1",
+  "permalink": "https://app.getsentry.com/sentry-sc/epeius/issues/120732258/",
+  "level": "error",
+  "isSubscribed": true,
+  "isBookmarked": true,
+  "project": {
+    "name": "Epeius",
+    "slug": "epeius"
+  },
+  "statusDetails": {}
+}
