@@ -1,4 +1,4 @@
-module Sentry
+module SentryApi
   # Converts hashes to the objects.
   class ObjectifiedHash
     # Creates a new ObjectifiedHash object.

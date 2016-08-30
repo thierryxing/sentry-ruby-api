@@ -1,4 +1,4 @@
-module Sentry
+module SentryApi
   # @private
   class API < Request
     # @private
@@ -7,7 +7,7 @@ module Sentry
     # Creates a new API.
     # @raise [Error:MissingCredentials]
     def initialize(options={})
-      options = Sentry.options.merge(options)
+      options = SentryApi.options.merge(options)
       (Configuration::VALID_OPTIONS_KEYS).each do |key|
         send("#{key}=", options[key]) if options[key]
       end

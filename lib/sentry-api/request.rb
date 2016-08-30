@@ -1,7 +1,7 @@
 require 'httparty'
 require 'json'
 
-module Sentry
+module SentryApi
   # @private
   class Request
     include HTTParty

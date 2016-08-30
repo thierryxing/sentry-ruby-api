@@ -1,7 +1,7 @@
 require 'rspec'
 require 'webmock/rspec'
 
-require File.expand_path('../../lib/sentry', __FILE__)
+require File.expand_path('../../lib/sentry-api', __FILE__)
 
 def capture_output
   out = StringIO.new
@@ -19,56 +19,56 @@ end
 
 RSpec.configure do |config|
   config.before(:all) do
-    Sentry.endpoint = 'https://api.example.com/api/0'
-    Sentry.auth_token = 'secret'
-    Sentry.default_org_slug = 'sentry-sc'
+    SentryApi.endpoint = 'https://api.example.com/api/0'
+    SentryApi.auth_token = 'secret'
+    SentryApi.default_org_slug = 'sentry-sc'
   end
 end
 
 # GET
 def stub_get(path, fixture, status_code=200)
-  stub_request(:get, "#{Sentry.endpoint}#{path}").
-      with(:headers => {'Authorization' => "Bearer #{Sentry.auth_token}", 'Content-Type' => 'application/json'}).
+  stub_request(:get, "#{SentryApi.endpoint}#{path}").
+      with(:headers => {'Authorization' => "Bearer #{SentryApi.auth_token}", 'Content-Type' => 'application/json'}).
       to_return(body: load_fixture(fixture), status: status_code)
 end
 
 def a_get(path)
-  a_request(:get, "#{Sentry.endpoint}#{path}").
-      with(:headers => {'Authorization' => "Bearer #{Sentry.auth_token}", 'Content-Type' => 'application/json'})
+  a_request(:get, "#{SentryApi.endpoint}#{path}").
+      with(:headers => {'Authorization' => "Bearer #{SentryApi.auth_token}", 'Content-Type' => 'application/json'})
 end
 
 # POST
 def stub_post(path, fixture, status_code=200)
-  stub_request(:post, "#{Sentry.endpoint}#{path}").
-      with(:headers => {'Authorization' => "Bearer #{Sentry.auth_token}", 'Content-Type' => 'application/json'}).
+  stub_request(:post, "#{SentryApi.endpoint}#{path}").
+      with(:headers => {'Authorization' => "Bearer #{SentryApi.auth_token}", 'Content-Type' => 'application/json'}).
       to_return(body: load_fixture(fixture), status: status_code)
 end
 
 def a_post(path)
-  a_request(:post, "#{Sentry.endpoint}#{path}").
-      with(:headers => {'Authorization' => "Bearer #{Sentry.auth_token}", 'Content-Type' => 'application/json'})
+  a_request(:post, "#{SentryApi.endpoint}#{path}").
+      with(:headers => {'Authorization' => "Bearer #{SentryApi.auth_token}", 'Content-Type' => 'application/json'})
 end
 
 # PUT
 def stub_put(path, fixture)
-  stub_request(:put, "#{Sentry.endpoint}#{path}").
-      with(:headers => {'Authorization' => "Bearer #{Sentry.auth_token}", 'Content-Type' => 'application/json'}).
+  stub_request(:put, "#{SentryApi.endpoint}#{path}").
+      with(:headers => {'Authorization' => "Bearer #{SentryApi.auth_token}", 'Content-Type' => 'application/json'}).
       to_return(body: load_fixture(fixture))
 end
 
 def a_put(path)
-  a_request(:put, "#{Sentry.endpoint}#{path}").
-      with(:headers => {'Authorization' => "Bearer #{Sentry.auth_token}", 'Content-Type' => 'application/json'})
+  a_request(:put, "#{SentryApi.endpoint}#{path}").
+      with(:headers => {'Authorization' => "Bearer #{SentryApi.auth_token}", 'Content-Type' => 'application/json'})
 end
 
 # DELETE
 def stub_delete(path, fixture)
-  stub_request(:delete, "#{Sentry.endpoint}#{path}").
-      with(:headers => {'Authorization' => "Bearer #{Sentry.auth_token}", 'Content-Type' => 'application/json'}).
+  stub_request(:delete, "#{SentryApi.endpoint}#{path}").
+      with(:headers => {'Authorization' => "Bearer #{SentryApi.auth_token}", 'Content-Type' => 'application/json'}).
       to_return(body: load_fixture(fixture))
 end
 
 def a_delete(path)
-  a_request(:delete, "#{Sentry.endpoint}#{path}").
-      with(:headers => {'Authorization' => "Bearer #{Sentry.auth_token}", 'Content-Type' => 'application/json'})
+  a_request(:delete, "#{SentryApi.endpoint}#{path}").
+      with(:headers => {'Authorization' => "Bearer #{SentryApi.auth_token}", 'Content-Type' => 'application/json'})
 end

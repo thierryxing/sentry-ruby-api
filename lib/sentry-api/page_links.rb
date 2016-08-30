@@ -1,4 +1,4 @@
-module Sentry
+module SentryApi
   # Parses link header.
   #
   # @private

@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Sentry::PaginatedResponse do
+describe SentryApi::PaginatedResponse do
   before do
     array = [1, 2, 3, 4]
-    @paginated_response = Sentry::PaginatedResponse.new array
+    @paginated_response = SentryApi::PaginatedResponse.new array
   end
 
   it "should respond to *_page and has_*_page methods" do

@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe Sentry::ObjectifiedHash do
+describe SentryApi::ObjectifiedHash do
   before do
     @hash = {a: 1, b: 2, 'string' => 'string', symbol: :symbol}
-    @oh = Sentry::ObjectifiedHash.new @hash
+    @oh = SentryApi::ObjectifiedHash.new @hash
   end
 
   it "should objectify hash" do

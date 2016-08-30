@@ -1,17 +1,17 @@
 require 'spec_helper'
 
-describe Sentry::Request do
+describe SentryApi::Request do
   it { should respond_to :get }
   it { should respond_to :post }
   it { should respond_to :put }
   it { should respond_to :delete }
   before do
-    @request = Sentry::Request.new
+    @request = SentryApi::Request.new
   end
 
   describe ".default_options" do
     it "should have default values" do
-      default_options = Sentry::Request.default_options
+      default_options = SentryApi::Request.default_options
       expect(default_options).to be_a Hash
       expect(default_options[:parser]).to be_a Proc
       expect(default_options[:format]).to eq(:json)
@@ -23,11 +23,11 @@ describe Sentry::Request do
   describe ".parse" do
     it "should return ObjectifiedHash" do
       body = JSON.unparse(a: 1, b: 2)
-      expect(Sentry::Request.parse(body)).to be_an Sentry::ObjectifiedHash
-      expect(Sentry::Request.parse("true")).to be true
-      expect(Sentry::Request.parse("false")).to be false
+      expect(SentryApi::Request.parse(body)).to be_an SentryApi::ObjectifiedHash
+      expect(SentryApi::Request.parse("true")).to be true
+      expect(SentryApi::Request.parse("false")).to be false
 
-      expect { Sentry::Request.parse("string") }.to raise_error(Sentry::Error::Parsing)
+      expect { SentryApi::Request.parse("string") }.to raise_error(SentryApi::Error::Parsing)
     end
   end
 
@@ -37,7 +37,7 @@ describe Sentry::Request do
         @request.endpoint = nil
         expect do
           @request.set_request_defaults
-        end.to raise_error(Sentry::Error::MissingCredentials, 'Please set an endpoint to API')
+        end.to raise_error(SentryApi::Error::MissingCredentials, 'Please set an endpoint to API')
       end
     end
 
@@ -48,7 +48,7 @@ describe Sentry::Request do
 
       it "should set default_params" do
         @request.set_request_defaults
-        expect(Sentry::Request.default_params).to eq({})
+        expect(SentryApi::Request.default_params).to eq({})
       end
     end
   end

@@ -1,13 +1,13 @@
-class Sentry::Client
+class SentryApi::Client
 
   module Organizations
     # List your Organizations.
     #
     # @example
-    #   Sentry.organizations
+    #   SentryApi.organizations
     #
     # @param member [Boolean] Restrict results to organizations which you have membership
-    # @return [Array<Sentry::ObjectifiedHash>]
+    # @return [Array<SentryApi::ObjectifiedHash>]
     def organizations(member=false)
       get("/organizations/", query: {member: member})
     end
@@ -15,11 +15,11 @@ class Sentry::Client
     # List an Organization’s Projects
     #
     # @example
-    #   Sentry.organization_projects
-    #   Sentry.organization_projects('slug')
+    #   SentryApi.organization_projects
+    #   SentryApi.organization_projects('slug')
     #
     # @param organization_slug [String] the slug of the organization for which the projects should be listed.
-    # @return [Array<Sentry::ObjectifiedHash>]
+    # @return [Array<SentryApi::ObjectifiedHash>]
     def organization_projects(organization_slug="")
       organization_slug = @default_org_slug if organization_slug == ""
       get("/organizations/#{organization_slug}/projects/")
@@ -28,11 +28,11 @@ class Sentry::Client
     # Retrieve an Organization
     #
     # @example
-    #   Sentry.organization
-    #   Sentry.organization('slug')
+    #   SentryApi.organization
+    #   SentryApi.organization('slug')
     #
     # @param organization_slug [String] the slug of the organization the team should be created for.
-    # @return Sentry::ObjectifiedHash
+    # @return [SentryApi::ObjectifiedHash]
     def organization(organization_slug="")
       organization_slug = @default_org_slug if organization_slug == ""
       get("/organizations/#{organization_slug}/")
@@ -41,15 +41,15 @@ class Sentry::Client
     # Update an Organization
     #
     # @example
-    #   Sentry.update_organization('slug')
-    #   Sentry.update_organization('slug',{name:'new-name'})
-    #   Sentry.update_organization('slug',{name:'new-name', slug:'new-slug'})
+    #   SentryApi.update_organization('slug')
+    #   SentryApi.update_organization('slug',{name:'new-name'})
+    #   SentryApi.update_organization('slug',{name:'new-name', slug:'new-slug'})
     #
     # @param organization_slug [String] the slug of the organization the team should be created for.
     # @param [Hash] options A customizable set of options.
     # @option options [String] :name an optional new name for the organization.
     # @option options [String] :slug an optional new slug for the organization. Needs to be available and unique.
-    # @return Sentry::ObjectifiedHash
+    # @return [SentryApi::ObjectifiedHash]
     def update_organization(organization_slug, options={})
       put("/organizations/#{organization_slug}/", body: options)
     end
@@ -57,8 +57,8 @@ class Sentry::Client
     # Retrieve Event Counts for an Organization
     #
     # @example
-    #   Sentry.organization_stats('slug')
-    #   Sentry.organization_stats('slug', {stat:'received', since:'1472158800'})
+    #   SentryApi.organization_stats('slug')
+    #   SentryApi.organization_stats('slug', {stat:'received', since:'1472158800'})
     #
     # @param organization_slug [String] the slug of the organization for which the stats should be retrieved.
     # @param [Hash] options A customizable set of options.

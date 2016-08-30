@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Sentry::Client do
+describe SentryApi::Client do
 
   describe ".organizations" do
     before do
       stub_get("/organizations/?member=false", "organizations")
-      @organizations = Sentry.organizations
+      @organizations = SentryApi.organizations
     end
 
     it "should get the correct resource" do
@@ -13,7 +13,7 @@ describe Sentry::Client do
     end
 
     it "should return a paginated response of organizations" do
-      expect(@organizations).to be_a Sentry::PaginatedResponse
+      expect(@organizations).to be_a SentryApi::PaginatedResponse
       expect(@organizations.first.name).to eq("The Interstellar Jurisdiction")
       expect(@organizations.first.slug).to eq("the-interstellar-jurisdiction")
     end
@@ -22,7 +22,7 @@ describe Sentry::Client do
   describe ".organization_projects" do
     before do
       stub_get("/organizations/org-slug/projects/", "organization_projects")
-      @projects = Sentry.organization_projects('org-slug')
+      @projects = SentryApi.organization_projects('org-slug')
     end
 
     it "should get the correct resource" do
@@ -30,7 +30,7 @@ describe Sentry::Client do
     end
 
     it "should return a paginated response of organization's projects" do
-      expect(@projects).to be_a Sentry::PaginatedResponse
+      expect(@projects).to be_a SentryApi::PaginatedResponse
       expect(@projects.first.status).to eq("active")
       expect(@projects.first.team.slug).to eq("powerful-abolitionist")
     end
@@ -39,7 +39,7 @@ describe Sentry::Client do
   describe ".organization" do
     before do
       stub_get("/organizations/org-slug/", "organization")
-      @organization = Sentry.organization('org-slug')
+      @organization = SentryApi.organization('org-slug')
     end
 
     it "should get the correct resource" do
@@ -47,7 +47,7 @@ describe Sentry::Client do
     end
 
     it "should return a response of organization" do
-      expect(@organization).to be_a Sentry::ObjectifiedHash
+      expect(@organization).to be_a SentryApi::ObjectifiedHash
       expect(@organization.slug).to eq("the-interstellar-jurisdiction")
       expect(@organization.teams.first["name"]).to eq("Ancient Gabelers")
     end
@@ -56,7 +56,7 @@ describe Sentry::Client do
   describe ".update_organization" do
     before do
       stub_put("/organizations/org-slug/", "update_organization")
-      @edited_organization = Sentry.update_organization("org-slug", name: "Impeccably Designated")
+      @edited_organization = SentryApi.update_organization("org-slug", name: "Impeccably Designated")
     end
 
     it "should get the correct resource" do
@@ -71,7 +71,7 @@ describe Sentry::Client do
   describe ".organization_stats" do
     before do
       stub_get("/organizations/org-slug/stats/", "organization_stats").with(query: {stat: "received"})
-      @stats = Sentry.organization_stats("org-slug", stat: "received")
+      @stats = SentryApi.organization_stats("org-slug", stat: "received")
     end
 
     it "should get the correct resource" do

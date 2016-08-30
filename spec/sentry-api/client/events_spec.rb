@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Sentry::Client do
+describe SentryApi::Client do
 
   describe ".issue" do
     before do
       stub_get("/issues/1/", "issue")
-      @issue = Sentry.issue("1")
+      @issue = SentryApi.issue("1")
     end
 
     it "should get the correct resource" do
@@ -20,7 +20,7 @@ describe Sentry::Client do
   describe ".issue_events" do
     before do
       stub_get("/issues/1/events/", "issue_events")
-      @events = Sentry.issue_events("1")
+      @events = SentryApi.issue_events("1")
     end
 
     it "should get the correct resource" do
@@ -35,7 +35,7 @@ describe Sentry::Client do
   describe ".issue_hashes" do
     before do
       stub_get("/issues/1/hashes/", "issue_hashes")
-      @hashes = Sentry.issue_hashes("1")
+      @hashes = SentryApi.issue_hashes("1")
     end
 
     it "should get the correct resource" do
@@ -50,7 +50,7 @@ describe Sentry::Client do
   describe ".remove_issue" do
     before do
       stub_delete("/issues/1/", "remove_issue")
-      @hashes = Sentry.remove_issue("1")
+      @hashes = SentryApi.remove_issue("1")
     end
 
     it "should get the correct resource" do
@@ -61,7 +61,7 @@ describe Sentry::Client do
   describe ".remove_issue" do
     before do
       stub_delete("/issues/1/", "remove_issue")
-      @hashes = Sentry.remove_issue("1")
+      @hashes = SentryApi.remove_issue("1")
     end
 
     it "should get the correct resource" do
@@ -72,7 +72,7 @@ describe Sentry::Client do
   describe ".update_issue" do
     before do
       stub_put("/issues/1/", "update_issue")
-      @issue=Sentry.update_issue("1", {status: "resolved", assignedTo: "thierry.xing@gmail.com", hasSeen: true, isBookmarked: true, isSubscribed: true})
+      @issue=SentryApi.update_issue("1", {status: "resolved", assignedTo: "thierry.xing@gmail.com", hasSeen: true, isBookmarked: true, isSubscribed: true})
     end
 
     it "should get the correct resource" do
@@ -87,7 +87,7 @@ describe Sentry::Client do
   describe ".latest_event" do
     before do
       stub_get("/issues/1/events/latest/", "latest_event")
-      @event = Sentry.latest_event("1")
+      @event = SentryApi.latest_event("1")
     end
 
     it "should get the correct resource" do
@@ -102,7 +102,7 @@ describe Sentry::Client do
   describe ".oldest_event" do
     before do
       stub_get("/issues/1/events/oldest/", "oldest_event")
-      @event = Sentry.oldest_event("1")
+      @event = SentryApi.oldest_event("1")
     end
 
     it "should get the correct resource" do

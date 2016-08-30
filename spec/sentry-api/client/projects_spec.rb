@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Sentry::Client do
+describe SentryApi::Client do
 
   describe ".projects" do
     before do
       stub_get("/projects/", "projects")
-      @projects = Sentry.projects
+      @projects = SentryApi.projects
     end
 
     it "should get the correct resource" do
@@ -20,7 +20,7 @@ describe Sentry::Client do
   describe ".project" do
     before do
       stub_get("/projects/org-slug/project-slug/", "project")
-      @project=Sentry.project("project-slug", "org-slug")
+      @project=SentryApi.project("project-slug", "org-slug")
     end
 
     it "should get the correct resource" do
@@ -35,7 +35,7 @@ describe Sentry::Client do
   describe ".update_project" do
     before do
       stub_put("/projects/org-slug/project-slug/", "update_project")
-      @project=Sentry.update_project("project-slug", {name: "Plane Proxy", slug: "plane-proxy", isBookmarked: true, options: {}}, "org-slug")
+      @project=SentryApi.update_project("project-slug", {name: "Plane Proxy", slug: "plane-proxy", isBookmarked: true, options: {}}, "org-slug")
     end
 
     it "should get the correct resource" do
@@ -50,7 +50,7 @@ describe Sentry::Client do
   describe ".delete_project" do
     before do
       stub_delete("/projects/org-slug/project-slug/", "delete_project")
-      Sentry.delete_project("project-slug", "org-slug")
+      SentryApi.delete_project("project-slug", "org-slug")
     end
 
     it "should get the correct resource" do
@@ -61,7 +61,7 @@ describe Sentry::Client do
   describe ".project_stats" do
     before do
       stub_get("/projects/org-slug/project-slug/stats/", "project_stats").with(query: {stat: "received"})
-      @stats = Sentry.project_stats("project-slug", {stat: "received"}, "org-slug")
+      @stats = SentryApi.project_stats("project-slug", {stat: "received"}, "org-slug")
     end
 
     it "should get the correct resource" do
@@ -77,7 +77,7 @@ describe Sentry::Client do
   describe ".project_dsym_files" do
     before do
       stub_get("/projects/org-slug/project-slug/files/dsyms/", "project_dsym_files")
-      @files = Sentry.project_dsym_files("project-slug", "org-slug")
+      @files = SentryApi.project_dsym_files("project-slug", "org-slug")
     end
 
     it "should get the correct resource" do
@@ -92,7 +92,7 @@ describe Sentry::Client do
   describe ".create_client_key" do
     before do
       stub_post("/projects/org-slug/project-slug/keys/", "create_client_key")
-      @result = Sentry.create_client_key("project-slug", "Fabulous Key", "org-slug")
+      @result = SentryApi.create_client_key("project-slug", "Fabulous Key", "org-slug")
     end
 
     it "should get the correct resource" do
@@ -107,7 +107,7 @@ describe Sentry::Client do
   describe ".delete_client_key" do
     before do
       stub_delete("/projects/org-slug/project-slug/keys/87c990582e07446b9907b357fc27730e/", "delete_client_key")
-      Sentry.delete_client_key("project-slug", "87c990582e07446b9907b357fc27730e", "org-slug")
+      SentryApi.delete_client_key("project-slug", "87c990582e07446b9907b357fc27730e", "org-slug")
     end
 
     it "should get the correct resource" do
@@ -118,7 +118,7 @@ describe Sentry::Client do
   describe ".client_keys" do
     before do
       stub_get("/projects/org-slug/project-slug/keys/", "client_keys")
-      @keys = Sentry.client_keys("project-slug", "org-slug")
+      @keys = SentryApi.client_keys("project-slug", "org-slug")
     end
 
     it "should get the correct resource" do
@@ -133,7 +133,7 @@ describe Sentry::Client do
   describe ".update_client_key" do
     before do
       stub_put("/projects/org-slug/project-slug/keys/b692781e8be347b98722d62506fc8aa8/", "update_client_key")
-      @key = Sentry.update_client_key("project-slug", "b692781e8be347b98722d62506fc8aa8", {name: "Quite Positive Key"}, "org-slug")
+      @key = SentryApi.update_client_key("project-slug", "b692781e8be347b98722d62506fc8aa8", {name: "Quite Positive Key"}, "org-slug")
     end
 
     it "should get the correct resource" do
@@ -148,7 +148,7 @@ describe Sentry::Client do
   describe ".project_events" do
     before do
       stub_get("/projects/org-slug/project-slug/events/", "project_events")
-      @event = Sentry.project_events("project-slug", "org-slug")
+      @event = SentryApi.project_events("project-slug", "org-slug")
     end
 
     it "should get the correct resource" do
@@ -163,7 +163,7 @@ describe Sentry::Client do
   describe ".project_event" do
     before do
       stub_get("/projects/org-slug/project-slug/events/ef4e4e732d2544279851cf7c1b42716e/", "project_event")
-      @event = Sentry.project_event("project-slug", "ef4e4e732d2544279851cf7c1b42716e", "org-slug")
+      @event = SentryApi.project_event("project-slug", "ef4e4e732d2544279851cf7c1b42716e", "org-slug")
     end
 
     it "should get the correct resource" do
@@ -178,7 +178,7 @@ describe Sentry::Client do
   describe ".project_issues" do
     before do
       stub_get("/projects/org-slug/project-slug/issues/", "project_issues")
-      @issues = Sentry.project_issues("project-slug", "org-slug")
+      @issues = SentryApi.project_issues("project-slug", "org-slug")
     end
 
     it "should get the correct resource" do

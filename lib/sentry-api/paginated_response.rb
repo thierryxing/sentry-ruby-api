@@ -1,4 +1,4 @@
-module Sentry
+module SentryApi
   # Wrapper class of paginated response.
   class PaginatedResponse
     attr_accessor :client

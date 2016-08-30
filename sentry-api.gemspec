@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'sentry/version'
+require 'sentry-api/version'
 
 Gem::Specification.new do |spec|
-  spec.name = "sentry"
-  spec.version = Sentry::VERSION
+  spec.name = "sentry-api"
+  spec.version = SentryApi::VERSION
   spec.authors = ["Thierry Xing"]
   spec.email = ["thierry.xing@gmail.com"]
 
@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'https://github.com/thierryxing/sentry-ruby-api.git'"
+    spec.metadata['allowed_push_host'] = "https://github.com/thierryxing/sentry-ruby-api.git"
   else
     raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end

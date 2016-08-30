@@ -15,7 +15,7 @@ gem 'sentry', :git => "git@github.com:thierryxing/sentry-ruby-api.git"
 Configuration example:
 
 ```ruby
-Sentry.configure do |config|
+SentryApi.configure do |config|
   config.endpoint = 'http://example.com/api/0'
   config.auth_token = 'your_auth_token'
   config.default_org_slug = 'sentry-sc'
@@ -28,26 +28,26 @@ Usage examples:
 
 ```ruby
 # set an API endpoint
-Sentry.endpoint = 'http://example.com/api/0'
+SentryApi.endpoint = 'http://example.com/api/0'
 # => "http://example.com/api/0"
 
 # set a user private token
-Sentry.auth_token = 'your_auth_token'
+SentryApi.auth_token = 'your_auth_token'
 # => "your_auth_token"
 
 # configure a proxy server
-Sentry.http_proxy('proxyhost', 8888)
+SentryApi.http_proxy('proxyhost', 8888)
 # proxy server w/ basic auth
-Sentry.http_proxy('proxyhost', 8888, 'user', 'pass')
+SentryApi.http_proxy('proxyhost', 8888, 'user', 'pass')
 
 # list projects
-Sentry.projects
+SentryApi.projects
 
 # initialize a new client
-s = Sentry.client(endpoint: 'https://api.example.com', auth_token: 'your_auth_token', default_org_slug: 'sentry-sc')
+s = SentryApi.client(endpoint: 'https://api.example.com', auth_token: 'your_auth_token', default_org_slug: 'sentry-sc')
 
 # a paginated response
-projects = Sentry.projects
+projects = SentryApi.projects
 
 # check existence of the next page
 projects.has_next_page?

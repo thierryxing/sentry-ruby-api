@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Sentry::Error do
+describe SentryApi::Error do
   describe "#handle_message" do
     require "stringio"
 
@@ -18,10 +18,10 @@ describe Sentry::Error do
       response_object['content-length'] = "1024"
 
       response = HTTParty::Response.new(request_object, response_object, parsed_response, body: body)
-      @error = Sentry::Error::ResponseError.new(response)
+      @error = SentryApi::Error::ResponseError.new(response)
 
       @array = Array.new(['First message.', 'Second message.'])
-      @obj_h = Sentry::ObjectifiedHash.new(user: ['not set'],
+      @obj_h = SentryApi::ObjectifiedHash.new(user: ['not set'],
                                            password: ['too short'],
                                            embed_entity: {foo: ['bar'], sna: ['fu']})
     end

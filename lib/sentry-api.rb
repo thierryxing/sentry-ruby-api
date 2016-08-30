@@ -1,21 +1,21 @@
-require 'sentry/version'
-require 'sentry/objectified_hash'
-require 'sentry/configuration'
-require 'sentry/error'
-require 'sentry/page_links'
-require 'sentry/paginated_response'
-require 'sentry/request'
-require 'sentry/api'
-require 'sentry/client'
+require 'sentry-api/version'
+require 'sentry-api/objectified_hash'
+require 'sentry-api/configuration'
+require 'sentry-api/error'
+require 'sentry-api/page_links'
+require 'sentry-api/paginated_response'
+require 'sentry-api/request'
+require 'sentry-api/api'
+require 'sentry-api/client'
 
-module Sentry
+module SentryApi
   extend Configuration
 
   # Alias for Sentry::Client.new
   #
   # @return [Sentry::Client]
   def self.client(options={})
-    Sentry::Client.new(options)
+    SentryApi::Client.new(options)
   end
 
   # Delegate to Sentry::Client
@@ -31,7 +31,7 @@ module Sentry
 
   # Delegate to HTTParty.http_proxy
   def self.http_proxy(address=nil, port=nil, username=nil, password=nil)
-    Sentry::Request.http_proxy(address, port, username, password)
+    SentryApi::Request.http_proxy(address, port, username, password)
   end
 
   # Returns an unsorted array of available client methods.
@@ -39,7 +39,7 @@ module Sentry
   # @return [Array<Symbol>]
   def self.actions
     hidden = /endpoint|auth_token|default_org_slug|get|post|put|delete|validate|set_request_defaults|httparty/
-    (Sentry::Client.instance_methods - Object.methods).reject { |e| e[hidden] }
+    (SentryApi::Client.instance_methods - Object.methods).reject { |e| e[hidden] }
   end
 
 end
