@@ -1,4 +1,6 @@
 # Sentry Ruby API
+[![Build Status](https://travis-ci.org/thierryxing/sentry-ruby-api.svg?branch=master)](https://travis-ci.org/thierryxing/sentry-ruby-api)
+[![License](https://img.shields.io/badge/license-BSD-red.svg?style=flat)](https://github.com/thierryxing/sentry-ruby-api/blob/master/LICENSE.txt)
 
 Sentry Ruby API is a Ruby wrapper for the [getsentry/sentry API](https://docs.sentry.io/hosted/api/). 
 
