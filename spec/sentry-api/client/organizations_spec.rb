@@ -56,7 +56,7 @@ describe SentryApi::Client do
   describe ".update_organization" do
     before do
       stub_put("/organizations/org-slug/", "update_organization")
-      @edited_organization = SentryApi.update_organization("org-slug", name: "Impeccably Designated")
+      @edited_organization = SentryApi.update_organization({name: "Impeccably Designated"}, "org-slug")
     end
 
     it "should get the correct resource" do
@@ -70,12 +70,12 @@ describe SentryApi::Client do
 
   describe ".organization_stats" do
     before do
-      stub_get("/organizations/org-slug/stats/", "organization_stats").with(query: {stat: "received"})
-      @stats = SentryApi.organization_stats("org-slug", stat: "received")
+      stub_get("/organizations/sentry-sc/stats/", "organization_stats").with(query: {stat: "received"})
+      @stats = SentryApi.organization_stats({stat: "received"})
     end
 
     it "should get the correct resource" do
-      expect(a_get("/organizations/org-slug/stats/").with(query: {stat: "received"})).to have_been_made
+      expect(a_get("/organizations/sentry-sc/stats/").with(query: {stat: "received"})).to have_been_made
     end
 
     it "should return array about an organization's event counts" do

@@ -19,8 +19,7 @@ class SentryApi::Client
     # @param project_slug [String] the slug of the project to retrieve.
     # @param organization_slug [String] the slug of the organization the project belong to.
     # @return [SentryApi::ObjectifiedHash]
-    def project(project_slug, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def project(project_slug, organization_slug=@default_org_slug)
       get("/projects/#{organization_slug}/#{project_slug}/")
     end
 
@@ -37,8 +36,7 @@ class SentryApi::Client
     # @option options [Hash] optional options to override in the project settings.
     # @param organization_slug [String] the slug of the organization the project belong to.
     # @return [SentryApi::ObjectifiedHash]
-    def update_project(project_slug, options={}, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def update_project(project_slug, options={}, organization_slug=@default_org_slug)
       put("/projects/#{organization_slug}/#{project_slug}/", body: options)
     end
 
@@ -49,8 +47,7 @@ class SentryApi::Client
     #
     # @param project_slug [String] the slug of the project to delete.
     # @param organization_slug [String] the slug of the organization the project belong to.
-    def delete_project(project_slug, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def delete_project(project_slug, organization_slug=@default_org_slug)
       delete("/projects/#{organization_slug}/#{project_slug}/")
     end
 
@@ -68,7 +65,7 @@ class SentryApi::Client
     # @option options [String] :resolution an explicit resolution to search for (eg: 10s). This should not be used unless you are familiar with Sentry’s internals as it’s restricted to pre-defined values.
     # @param organization_slug [String] the slug of the organization the project belong to.
     # @return [Array<Array>]
-    def project_stats(project_slug, options={}, organization_slug="")
+    def project_stats(project_slug, options={}, organization_slug=@default_org_slug)
       get("/projects/#{organization_slug}/#{project_slug}/stats/", query: options)
     end
 
@@ -81,8 +78,7 @@ class SentryApi::Client
     # @param file_path [String] the absolute file path of the dsym file.
     # @param organization_slug [String] the slug of the organization.
     # @return [Array<SentryApi::ObjectifiedHash>]
-    def upload_dsym_files(project_slug, file_path, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def upload_dsym_files(project_slug, file_path, organization_slug=@default_org_slug)
       post("/projects/#{organization_slug}/#{project_slug}/files/dsyms/", body: {file: File.new(file_path)})
     end
 
@@ -94,8 +90,7 @@ class SentryApi::Client
     # @param organization_slug [String] the slug of the organization.
     # @param project_slug [String] the slug of the project to list the dsym files of.
     # @return [Array<SentryApi::ObjectifiedHash>]
-    def project_dsym_files(project_slug, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def project_dsym_files(project_slug, organization_slug=@default_org_slug)
       get("/projects/#{organization_slug}/#{project_slug}/files/dsyms/")
     end
 
@@ -122,8 +117,7 @@ class SentryApi::Client
     # @option options [String] :name the name for the new key.
     # @param organization_slug [String] the slug of the organization the client keys belong to.
     # @return [SentryApi::ObjectifiedHash]
-    def create_client_key(project_slug, options={}, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def create_client_key(project_slug, options={}, organization_slug=@default_org_slug)
       post("/projects/#{organization_slug}/#{project_slug}/keys/", body: options)
     end
 
@@ -135,8 +129,7 @@ class SentryApi::Client
     # @param project_slug [String] the slug of the project the client keys belong to.
     # @param key_id [String] the ID of the key to delete.
     # @param organization_slug [String] the slug of the organization the client keys belong to.
-    def delete_client_key(project_slug, key_id, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def delete_client_key(project_slug, key_id, organization_slug=@default_org_slug)
       delete("/projects/#{organization_slug}/#{project_slug}/keys/#{key_id}/")
     end
 
@@ -151,8 +144,7 @@ class SentryApi::Client
     # @option options [String] :name the new name for the client key.
     # @param organization_slug [String] the slug of the organization the client keys belong to.
     # @return [Array<SentryApi::ObjectifiedHash>]
-    def update_client_key(project_slug, key_id, options={}, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def update_client_key(project_slug, key_id, options={}, organization_slug=@default_org_slug)
       put("/projects/#{organization_slug}/#{project_slug}/keys/#{key_id}/", body: options)
     end
 
@@ -164,8 +156,7 @@ class SentryApi::Client
     # @param project_slug [String] the slug of the project the client keys belong to.
     # @param organization_slug [String] the slug of the organization the client keys belong to.
     # @return [Array<SentryApi::ObjectifiedHash>]
-    def project_events(project_slug, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def project_events(project_slug, organization_slug=@default_org_slug)
       get("/projects/#{organization_slug}/#{project_slug}/events/")
     end
 
@@ -178,8 +169,7 @@ class SentryApi::Client
     # @param event_id [String] the slug of the project the event belongs to.
     # @param organization_slug [String] the slug of the organization the client keys belong to.
     # @return [SentryApi::ObjectifiedHash]
-    def project_event(project_slug, event_id, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def project_event(project_slug, event_id, organization_slug=@default_org_slug)
       get("/projects/#{organization_slug}/#{project_slug}/events/#{event_id}/")
     end
 
@@ -189,8 +179,7 @@ class SentryApi::Client
     #   SentryApi.project_issues('project-slug')
     #
     # @return [Array<SentryApi::ObjectifiedHash>]
-    def project_issues(project_slug, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def project_issues(project_slug, organization_slug=@default_org_slug)
       get("/projects/#{organization_slug}/#{project_slug}/issues/")
     end
 

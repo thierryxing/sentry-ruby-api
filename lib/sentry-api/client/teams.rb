@@ -13,8 +13,7 @@ class SentryApi::Client
     # @option options [String] :name the name for the new project.
     # @option options [String] :slug optionally a slug for the new project. If it’s not provided a slug is generated from the name.
     # @return [SentryApi::ObjectifiedHash]
-    def create_project(team_slug, options={}, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def create_project(team_slug, options={}, organization_slug=@default_org_slug)
       post("/teams/#{organization_slug}/#{team_slug}/projects/", body: options)
     end
 
@@ -25,8 +24,7 @@ class SentryApi::Client
     #
     # @param team_slug [String] the slug of the team
     # @param organization_slug [String]  the slug of the organization
-    def delete_team(team_slug, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def delete_team(team_slug, organization_slug=@default_org_slug)
       delete("/teams/#{organization_slug}/#{team_slug}/")
     end
 
@@ -38,8 +36,7 @@ class SentryApi::Client
     # @param team_slug [String] the slug of the team
     # @param organization_slug [String]  the slug of the organization
     # @return [Array<SentryApi::ObjectifiedHash>]
-    def team_projects(team_slug, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def team_projects(team_slug, organization_slug=@default_org_slug)
       get("/teams/#{organization_slug}/#{team_slug}/projects/")
     end
 
@@ -51,8 +48,7 @@ class SentryApi::Client
     # @param team_slug [String] the slug of the team
     # @param organization_slug [String] the slug of the organization
     # @return [SentryApi::ObjectifiedHash]
-    def team(team_slug, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def team(team_slug, organization_slug=@default_org_slug)
       get("/teams/#{organization_slug}/#{team_slug}/")
     end
 
@@ -67,8 +63,7 @@ class SentryApi::Client
     # @option options [String] :name the name for the new project.
     # @option options [String] :slug optionally a slug for the new project. If it’s not provided a slug is generated from the name.
     # @return [SentryApi::ObjectifiedHash]
-    def update_team(team_slug, options={}, organization_slug="")
-      organization_slug = @default_org_slug if organization_slug == ""
+    def update_team(team_slug, options={}, organization_slug=@default_org_slug)
       get("/teams/#{organization_slug}/#{team_slug}/", body: options)
     end
 
