@@ -1,0 +1,16 @@
+{
+  "slug": "powerful-abolitionist",
+  "name": "Powerful Abolitionist",
+  "hasAccess": true,
+  "isPending": false,
+  "dateCreated": "2016-08-30T21:22:52.612Z",
+  "isMember": false,
+  "organization": {
+    "name": "The Interstellar Jurisdiction",
+    "slug": "the-interstellar-jurisdiction",
+    "id": "2",
+    "isEarlyAdopter": false,
+    "dateCreated": "2016-08-30T21:22:52.601Z"
+  },
+  "id": "2"
+}

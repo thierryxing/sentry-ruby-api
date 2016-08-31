@@ -71,6 +71,33 @@ class SentryApi::Client
       get("/organizations/#{organization_slug}/stats/", query: options)
     end
 
+    # Create a new team bound to an organization
+    #
+    # @example
+    #   SentryApi.create_project('team-slug', {name:'team-name', slug:'team-slug'})
+    #
+    # @param organization_slug [String] the slug of the organization the team should be created for
+    # @param [Hash] options A customizable set of options.
+    # @option options [String] :name the name for the new team.
+    # @option options [String] :slug optionally a slug for the new team. If it’s not provided a slug is generated from the name.
+    # @return [SentryApi::ObjectifiedHash]
+    def create_team(options={}, organization_slug="")
+      organization_slug = @default_org_slug if organization_slug == ""
+      post("/organizations/#{organization_slug}/teams/", body: options)
+    end
+
+    # Return a list of teams bound to a organization.
+    #
+    # @example
+    #   SentryApi.organization_teams('team-slug')
+    #
+    # @param organization_slug [String]  the slug of the organization
+    # @return [Array<SentryApi::ObjectifiedHash>]
+    def organization_teams(organization_slug="")
+      organization_slug = @default_org_slug if organization_slug == ""
+      get("/organizations/#{organization_slug}/teams/")
+    end
+
   end
 
 end

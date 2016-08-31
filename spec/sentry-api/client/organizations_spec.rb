@@ -84,4 +84,19 @@ describe SentryApi::Client do
     end
   end
 
+  describe ".create_team" do
+    before do
+      stub_post("/organizations/org-slug/teams/", "create_team").with(body: {name: "name"})
+      @team = SentryApi.create_team({name: "name"}, "org-slug")
+    end
+
+    it "should get the correct resource" do
+      expect(a_post("/organizations/org-slug/teams/").with(body: {name: "name"})).to have_been_made
+    end
+
+    it "should return array about an organization's event counts" do
+      expect(@team.slug).to eq("ancient-gabelers")
+    end
+  end
+
 end
