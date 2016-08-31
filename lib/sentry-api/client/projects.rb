@@ -72,6 +72,20 @@ class SentryApi::Client
       get("/projects/#{organization_slug}/#{project_slug}/stats/", query: options)
     end
 
+    # Upload a new dsym file for the given release
+    #
+    # @example
+    #   SentryApi.upload_dsym_files('project-slug','/path/to/file')
+    #
+    # @param project_slug [String] the slug of the project to list the dsym files of.
+    # @param file_path [String] the absolute file path of the dsym file.
+    # @param organization_slug [String] the slug of the organization.
+    # @return [Array<SentryApi::ObjectifiedHash>]
+    def upload_dsym_files(project_slug, file_path, organization_slug="")
+      organization_slug = @default_org_slug if organization_slug == ""
+      post("/projects/#{organization_slug}/#{project_slug}/files/dsyms/", body: {file: File.new(file_path)})
+    end
+
     # List a Project’s DSym Files.
     #
     # @example

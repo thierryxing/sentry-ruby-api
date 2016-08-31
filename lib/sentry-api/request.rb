@@ -1,14 +1,14 @@
-require 'httparty'
+require 'httmultiparty'
 require 'json'
 
 module SentryApi
   # @private
   class Request
-    include HTTParty
-    format :json
-    headers 'Content-Type' => 'application/json'
-    parser proc { |body, _| parse(body) }
+    include HTTMultiParty
 
+    format :json
+    headers "Content-Type" => "application/json"
+    parser proc { |body, _| parse(body) }
     attr_accessor :auth_token, :endpoint, :default_org_slug
 
     # Converts the response body to an ObjectifiedHash.
@@ -67,6 +67,12 @@ module SentryApi
       validate self.class.delete(@endpoint + path, options)
     end
 
+    def upload(path, options={})
+      set_httparty_config(options)
+      set_authorization_header(options)
+      validate self.class.post(@endpoint + path, options)
+    end
+
     # Checks the response code for common errors.
     # Returns parsed response for successful requests.
     def validate(response)
@@ -119,9 +125,12 @@ module SentryApi
       end
     end
 
-    # Set http post or put body as json string
+    # Set http post or put body as json string if content type is application/json
     def set_json_body(options)
-      options[:body] = options[:body].to_json
+      headers = self.class.headers
+      if headers and headers["Content-Type"] == "application/json"
+        options[:body] = options[:body].to_json
+      end
     end
 
     # Set HTTParty configuration
