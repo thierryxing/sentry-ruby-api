@@ -79,7 +79,7 @@ class SentryApi::Client
     # @param organization_slug [String] the slug of the organization.
     # @return [Array<SentryApi::ObjectifiedHash>]
     def upload_dsym_files(project_slug, file_path, organization_slug=@default_org_slug)
-      post("/projects/#{organization_slug}/#{project_slug}/files/dsyms/", body: {file: File.new(file_path)})
+      upload("/projects/#{organization_slug}/#{project_slug}/files/dsyms/", body: {file: File.new(file_path)})
     end
 
     # List a Project’s DSym Files.
