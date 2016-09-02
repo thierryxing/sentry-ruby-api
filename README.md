@@ -74,8 +74,6 @@ projects.auto_paginate
 ```
 
 ## Development
-The basic framework had been finished, meanwhile the APIs of Organizations,Projects and Events had been added, more APIs will be added later. You are welcome to help me with it.
-
 After checking out the repo, run `bin/setup` to install dependencies. Then, run
 `rake spec` to run the tests. You can also run `bin/console` for an interactive
 prompt that will allow you to experiment.
