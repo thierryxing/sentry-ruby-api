@@ -4,12 +4,12 @@ describe SentryApi::Client do
 
   describe ".team" do
     before do
-      stub_get("/teams/org-slug/team-slug/", "team")
-      @team = SentryApi.team("team-slug", "org-slug")
+      stub_get("/teams/sentry-sc/team-slug/", "team")
+      @team = SentryApi.team("team-slug")
     end
 
     it "should get the correct resource" do
-      expect(a_get("/teams/org-slug/team-slug/")).to have_been_made
+      expect(a_get("/teams/sentry-sc/team-slug/")).to have_been_made
     end
 
     it "should return an response of team" do
