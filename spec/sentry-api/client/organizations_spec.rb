@@ -21,12 +21,12 @@ describe SentryApi::Client do
 
   describe ".organization_projects" do
     before do
-      stub_get("/organizations/org-slug/projects/", "organization_projects")
-      @projects = SentryApi.organization_projects('org-slug')
+      stub_get("/organizations/sentry-sc/projects/", "organization_projects")
+      @projects = SentryApi.organization_projects
     end
 
     it "should get the correct resource" do
-      expect(a_get("/organizations/org-slug/projects/")).to have_been_made
+      expect(a_get("/organizations/sentry-sc/projects/")).to have_been_made
     end
 
     it "should return a paginated response of organization's projects" do
@@ -38,12 +38,12 @@ describe SentryApi::Client do
 
   describe ".organization" do
     before do
-      stub_get("/organizations/org-slug/", "organization")
-      @organization = SentryApi.organization('org-slug')
+      stub_get("/organizations/sentry-sc/", "organization")
+      @organization = SentryApi.organization
     end
 
     it "should get the correct resource" do
-      expect(a_get("/organizations/org-slug/")).to have_been_made
+      expect(a_get("/organizations/sentry-sc/")).to have_been_made
     end
 
     it "should return a response of organization" do
@@ -55,12 +55,12 @@ describe SentryApi::Client do
 
   describe ".update_organization" do
     before do
-      stub_put("/organizations/org-slug/", "update_organization")
-      @edited_organization = SentryApi.update_organization({name: "Impeccably Designated"}, "org-slug")
+      stub_put("/organizations/sentry-sc/", "update_organization")
+      @edited_organization = SentryApi.update_organization({name: "Impeccably Designated"})
     end
 
     it "should get the correct resource" do
-      expect(a_put("/organizations/org-slug/")).to have_been_made
+      expect(a_put("/organizations/sentry-sc/")).to have_been_made
     end
 
     it "should return information about an update organization" do
@@ -86,12 +86,12 @@ describe SentryApi::Client do
 
   describe ".create_team" do
     before do
-      stub_post("/organizations/org-slug/teams/", "create_team").with(body: {name: "name"})
-      @team = SentryApi.create_team({name: "name"}, "org-slug")
+      stub_post("/organizations/sentry-sc/teams/", "create_team").with(body: {name: "name"})
+      @team = SentryApi.create_team({name: "name"})
     end
 
     it "should get the correct resource" do
-      expect(a_post("/organizations/org-slug/teams/").with(body: {name: "name"})).to have_been_made
+      expect(a_post("/organizations/sentry-sc/teams/").with(body: {name: "name"})).to have_been_made
     end
 
     it "should return array about an organization's event counts" do

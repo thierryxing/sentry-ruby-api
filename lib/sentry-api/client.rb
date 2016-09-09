@@ -7,5 +7,6 @@ module SentryApi
     include Projects
     include Events
     include Teams
+    include Releases
   end
 end

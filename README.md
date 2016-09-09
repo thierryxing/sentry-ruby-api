@@ -1,5 +1,6 @@
 # Sentry Ruby API
 [![Build Status](https://travis-ci.org/thierryxing/sentry-ruby-api.svg?branch=master)](https://travis-ci.org/thierryxing/sentry-ruby-api)
+[![Gem Version](https://badge.fury.io/rb/sentry-api.svg)](https://badge.fury.io/rb/sentry-api)
 [![License](https://img.shields.io/badge/license-BSD-red.svg?style=flat)](https://github.com/thierryxing/sentry-ruby-api/blob/master/LICENSE.txt)
 
 Sentry Ruby API is a Ruby wrapper for the [getsentry/sentry API](https://docs.sentry.io/hosted/api/). 
@@ -73,8 +74,6 @@ projects.auto_paginate
 ```
 
 ## Development
-The basic framework had been finished, meanwhile the APIs of Organizations,Projects and Events had been added, more APIs will be added later. You are welcome to help me with it.
-
 After checking out the repo, run `bin/setup` to install dependencies. Then, run
 `rake spec` to run the tests. You can also run `bin/console` for an interactive
 prompt that will allow you to experiment.
