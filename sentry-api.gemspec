@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version = SentryApi::VERSION
   spec.authors = ["Thierry Xing"]
   spec.email = ["thierry.xing@gmail.com"]
-  spec.licenses = ['MIT']
+  spec.licenses = ['BSD']
   spec.summary = %q{Ruby client for Sentry API}
   spec.description = %q{A Ruby wrapper for the Sentry API}
   spec.homepage = "https://github.com/thierryxing/sentry-ruby-api"
