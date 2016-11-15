@@ -149,7 +149,7 @@ class SentryApi::Client
       get("/projects/#{@default_org_slug}/#{project_slug}/events/")
     end
 
-    # Retrieve an Event for a Project
+    # Return a list of issues (groups) bound to a project. All parameters are supplied as query string parameters.
     #
     # @example
     #   SentryApi.project_event('project-slug', 'event-id')
@@ -161,14 +161,18 @@ class SentryApi::Client
       get("/projects/#{@default_org_slug}/#{project_slug}/events/#{event_id}/")
     end
 
-    # Return a list of aggregates bound to a project
+    # List a Project’s Issues
     #
     # @example
-    #   SentryApi.project_issues('project-slug')
+    #   SentryApi.project_issues('project-slug', {'query': 'is:unresolved Build-version:6.5.0'})
     #
+    # @param project_slug [String] the slug of the project the client keys belong to.
+    # @param [Hash] options A customizable set of options.
+    # @option options [String] :statsPeriod an optional stat period (can be one of "24h", "14d", and "").
+    # @option options [String] :query an optional Sentry structured search query. If not provided an implied "is:resolved" is assumed.)
     # @return [Array<SentryApi::ObjectifiedHash>]
-    def project_issues(project_slug)
-      get("/projects/#{@default_org_slug}/#{project_slug}/issues/")
+    def project_issues(project_slug, options={})
+      get("/projects/#{@default_org_slug}/#{project_slug}/issues/", query: options)
     end
 
   end
