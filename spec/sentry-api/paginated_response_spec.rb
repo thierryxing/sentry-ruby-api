@@ -20,8 +20,6 @@ describe SentryApi::PaginatedResponse do
       allow(client).to receive(:endpoint).and_return("http://example.com/api/0")
       expect(@paginated_response.has_next_page?).to be true
       expect(@paginated_response.has_prev_page?).to be false
-      expect(@paginated_response.next_page).to eql 'http://example.com/api/0/organizations/?&cursor=100:1:0'
-      expect(@paginated_response.prev_page).to be_nil
     end
   end
 

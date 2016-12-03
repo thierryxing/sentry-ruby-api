@@ -155,7 +155,7 @@ class SentryApi::Client
     #   SentryApi.project_event('project-slug', 'event-id')
     #
     # @param project_slug [String] the slug of the project the client keys belong to.
-    # @param event_id [String] the slug of the project the event belongs to.
+    # @param event_id [String] the hexadecimal ID of the event to retrieve (as reported by the raven client)
     # @return [SentryApi::ObjectifiedHash]
     def project_event(project_slug, event_id)
       get("/projects/#{@default_org_slug}/#{project_slug}/events/#{event_id}/")
