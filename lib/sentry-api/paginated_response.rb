@@ -70,7 +70,7 @@ module SentryApi
 
     def prev_page
       return nil if @client.nil? || !has_prev_page?
-      path = @links.prev.sub(/#{@client.endpoint}/, '')
+      path = @links.previous.sub(/#{@client.endpoint}/, '')
       @client.get(path)
     end
   end
