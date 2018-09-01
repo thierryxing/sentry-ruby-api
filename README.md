@@ -31,7 +31,7 @@ SentryApi.configure do |config|
 end
 ```
 
-(Note: If you are using getsentry.com's hosted service, your endpoint will be `https://app.getsentry.com/api/0`)
+(Note: If you are using getsentry.com's hosted service, your endpoint will be `https://sentry.io/api/0/`)
 
 Usage examples:
 
