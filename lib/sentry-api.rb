@@ -10,12 +10,13 @@ require 'sentry-api/client'
 
 module SentryApi
   extend Configuration
+  extend self
 
   # Alias for Sentry::Client.new
   #
   # @return [Sentry::Client]
   def self.client(options={})
-    SentryApi::Client.new(options)
+    options.empty? ? empty_options_client : SentryApi::Client.new(options)
   end
 
   # Delegate to Sentry::Client
@@ -42,4 +43,9 @@ module SentryApi
     (SentryApi::Client.instance_methods - Object.methods).reject { |e| e[hidden] }
   end
 
+  private
+
+  def empty_options_client
+    @client ||= SentryApi::Client.new({})
+  end
 end
